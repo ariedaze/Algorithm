@@ -11,6 +11,7 @@ class Stack(object):
         self.listInstance.insertAt(value, 0)
 
 
+
 stack = Stack()
 stack.push(1)
 stack.push(2)
