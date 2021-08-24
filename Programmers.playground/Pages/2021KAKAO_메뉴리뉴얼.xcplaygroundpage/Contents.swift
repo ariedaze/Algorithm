@@ -2,6 +2,10 @@
 
 import Foundation
 
+// course를 반복문을 돌면서 해당 크기에 대한 order(얘도 반복문) 조합을 구한다
+// orderDict를 순회하면서 countDict 만들기
+//
+
 func solution(_ orders:[String], _ course:[Int]) -> [String] {
     var orderDict: [String : Int] = [:]
     var countDict: [Int:[(String, Int)]] = [:]
@@ -39,8 +43,9 @@ func solution(_ orders:[String], _ course:[Int]) -> [String] {
     var answer: [String] = []
     for limit in course {
         if countDict[limit] != nil {
+            // count가 큰 순으로 정렬
             let list = countDict[limit]!.sorted(by: {$0.1 > $1.1})
-            // list에 숫자가 젤 큰 값과 같은 걸 filter 후 0번째 요소(?)를 반환
+            // list에 숫자가 젤 큰 값과 **같은 걸** filter
             answer.append(contentsOf: list.filter{list.first!.1 == $0.1}.map{$0.0})
         }
     }
