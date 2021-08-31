@@ -16,12 +16,12 @@ func solution(_ play_time:String, _ adv_time:String, _ logs:[String]) -> String 
         let playLog: [String] = log.components(separatedBy: "-")
         let start: Int = makeSeconds(time: playLog[0])
         let end: Int = makeSeconds(time: playLog[1])
-        playTimeList[start] = +1
-        playTimeList[end] = -1
+        playTimeList[start] += 1
+        playTimeList[end] -= 1
     }
     
     // 구간별시청자수
-    for i in 1...playTime {
+    for i in 1...playTime { // 종료 시점은 포함 x
         playTimeList[i] += playTimeList[i-1]
     }
     //구간별누적시청자수
@@ -32,7 +32,7 @@ func solution(_ play_time:String, _ adv_time:String, _ logs:[String]) -> String 
     var startTime = 0
     var maxTime = 0
     
-    for i in advTime-1..<playTime {
+    for i in (advTime-1)..<playTime {
         if i >= advTime {
             let view = playTimeList[i] - playTimeList[i - advTime]
             if maxTime < view {
@@ -47,7 +47,7 @@ func solution(_ play_time:String, _ adv_time:String, _ logs:[String]) -> String 
         }
 
     }
-    return makeString(seconds: maxTime)
+    return makeString(seconds: startTime)
 }
 
 func makeSeconds(time: String) -> Int {
