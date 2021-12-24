@@ -3,6 +3,8 @@
     <pages>
         <page name='2021KAKAO_메뉴리뉴얼'/>
         <page name='2021KAKAO_합승택시요금'/>
-        <page name='2021KAKAO_광고삽입'/>
+        <page name='2021KAKAO_광고삽입'/>
+        <page name='2021KAKAO_카드짝맞추기'/>
+        <page name='toss'/>
     </pages>
 </playground>

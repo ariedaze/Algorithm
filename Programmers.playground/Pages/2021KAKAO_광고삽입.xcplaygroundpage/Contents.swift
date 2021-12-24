@@ -59,9 +59,14 @@ func makeSeconds(time: String) -> Int {
 }
 
 func makeString(seconds: Int) -> String {
-    let hourString = 0...9 ~= seconds/3600 ? "0\(seconds/3600)" : "\(seconds/3600)"
-    let minuteString = 0...9 ~= seconds/60%60 ? "0\(seconds/60%60)" : "\(seconds/60%60)"
-    let secondString = 0...9 ~= seconds%60 ? "0\(seconds%60)" : "\(seconds%60)"
+    let hour = seconds/3600
+    let hourString = hour < 10 ? "0\(seconds/3600)" : "\(seconds/3600)"
+    
+    let minute = seconds/60%60
+    let minuteString = minute < 10 ? "0\(seconds/60%60)" : "\(seconds/60%60)"
+    
+    let second = seconds%60
+    let secondString = second < 10 ? "0\(seconds%60)" : "\(seconds%60)"
 
     return "\(hourString):\(minuteString):\(secondString)"
 }
